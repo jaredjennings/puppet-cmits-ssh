@@ -22,7 +22,7 @@ class ssh {
     $configdir = $::osfamily ? {
         'RedHat' => '/etc/ssh',
         'Darwin' => '/etc',
-        default  => unimplemented(),
+        default  => fail("unimplemented on ${::osfamily}"),
     }
     $server_config = "${configdir}/sshd_config"
     $client_config = "${configdir}/ssh_config"
@@ -30,7 +30,7 @@ class ssh {
     $service_name = $::osfamily ? {
         'redhat' => 'sshd',
         'darwin' => 'com.openssh.sshd',
-        default  => unimplemented(),
+        default  => fail("unimplemented on ${::osfamily}"),
     }
 
     service { 'sshd':
