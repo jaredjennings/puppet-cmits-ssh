@@ -37,9 +37,12 @@ class ssh::fips {
 # \implements{macosxstig}{GEN005506 M6}%
 # \implements{unixsrg}{GEN005506}%
 # Disable use of the cipher-block chaining (CBC) mode in the SSH server.
+            "rm Ciphers",
+            "set Ciphers/1 aes256-ctr",
+            "set Ciphers/2 aes192-ctr",
+            "set Ciphers/3 aes128-ctr",
 #
 # (See \url{http://openssh.com/txt/cbc.adv}.)
-            "set Ciphers aes128-ctr,aes192-ctr,aes256-ctr",
 # \implements{macosxstig}{GEN005507 M6}%
 # \implements{unixsrg}{GEN005507}%
 # Configure the SSH server to use only FIPS 140-2 approved message
