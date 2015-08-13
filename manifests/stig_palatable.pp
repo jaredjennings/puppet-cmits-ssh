@@ -97,20 +97,20 @@ class ssh::stig_palatable {
 # Restrict write permissions on the public SSH host keys.
     file {
         "${ssh::configdir}/ssh_host_key.pub":
-            owner => root, group => 0, mode => 0644;
+            owner => root, group => 0, mode => '0644';
         "${ssh::configdir}/ssh_host_rsa_key.pub":
-            owner => root, group => 0, mode => 0644;
+            owner => root, group => 0, mode => '0644';
         "${ssh::configdir}/ssh_host_dsa_key.pub":
-            owner => root, group => 0, mode => 0644;
+            owner => root, group => 0, mode => '0644';
     }
 # \implements{unixsrg}{GEN005523}%
 # Restrict reading and writing permissions on the private SSH host keys.
     file {
         "${ssh::configdir}/ssh_host_key":
-            owner => root, group => 0, mode => 0600;
+            owner => root, group => 0, mode => '0600';
         "${ssh::configdir}/ssh_host_rsa_key":
-            owner => root, group => 0, mode => 0600;
+            owner => root, group => 0, mode => '0600';
         "${ssh::configdir}/ssh_host_dsa_key":
-            owner => root, group => 0, mode => 0600;
+            owner => root, group => 0, mode => '0600';
     }
 }
